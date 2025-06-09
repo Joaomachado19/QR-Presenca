@@ -212,257 +212,274 @@ class _RelatorioWidgetState extends State<RelatorioWidget> {
                                       decoration: BoxDecoration(
                                         shape: BoxShape.rectangle,
                                       ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 50.0, 0.0, 0.0),
-                                        child: Builder(
-                                          builder: (context) {
-                                            final listaPessoas =
-                                                conteudoListaIdPessoasRowList
-                                                    .map((e) => e)
-                                                    .toList()
-                                                    .take(5)
-                                                    .toList();
+                                      child: Builder(
+                                        builder: (context) {
+                                          if (relatorioChamadaRow?.cancelado ==
+                                              0) {
+                                            return Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 50.0, 0.0, 0.0),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final listaPessoas =
+                                                      conteudoListaIdPessoasRowList
+                                                          .map((e) => e)
+                                                          .toList()
+                                                          .take(5)
+                                                          .toList();
 
-                                            return FlutterFlowDataTable<
-                                                ListaIdPessoasRow>(
-                                              controller: _model
-                                                  .paginatedDataTableController,
-                                              data: listaPessoas,
-                                              columnsBuilder: (onSortChanged) =>
-                                                  [
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
-                                                      'Nome',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .roboto(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  fixedWidth: 200.0,
-                                                ),
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
-                                                      'Presente',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .roboto(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  fixedWidth: 100.0,
-                                                ),
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
-                                                      'CPF',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .roboto(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  fixedWidth: 200.0,
-                                                ),
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
-                                                      'Telefone',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .roboto(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  fixedWidth: 200.0,
-                                                ),
-                                              ],
-                                              dataRowBuilder: (listaPessoasItem,
-                                                      listaPessoasIndex,
-                                                      selected,
-                                                      onSelectChanged) =>
-                                                  DataRow(
-                                                color:
-                                                    WidgetStateProperty.all(
-                                                  listaPessoasIndex % 2 == 0
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryBackground,
-                                                ),
-                                                cells: [
-                                                  FutureBuilder<
-                                                      List<UsuarioRow>>(
-                                                    future: UsuarioTable()
-                                                        .querySingleRow(
-                                                      queryFn: (q) =>
-                                                          q.eqOrNull(
-                                                        'user_id',
-                                                        listaPessoasItem
-                                                            .pessoaId,
-                                                      ),
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<UsuarioRow>
-                                                          textUsuarioRowList =
-                                                          snapshot.data!;
-
-                                                      final textUsuarioRow =
-                                                          textUsuarioRowList
-                                                                  .isNotEmpty
-                                                              ? textUsuarioRowList
-                                                                  .first
-                                                              : null;
-
-                                                      return Text(
-                                                        valueOrDefault<String>(
-                                                          textUsuarioRow?.nome,
-                                                          'pessoa',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
+                                                  return FlutterFlowDataTable<
+                                                      ListaIdPessoasRow>(
+                                                    controller: _model
+                                                        .paginatedDataTableController,
+                                                    data: listaPessoas,
+                                                    columnsBuilder:
+                                                        (onSortChanged) => [
+                                                      DataColumn2(
+                                                        label: DefaultTextStyle
+                                                            .merge(
+                                                          softWrap: true,
+                                                          child: Text(
+                                                            'Nome',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
                                                                 .override(
                                                                   font: GoogleFonts
                                                                       .roboto(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        fixedWidth: 200.0,
+                                                      ),
+                                                      DataColumn2(
+                                                        label: DefaultTextStyle
+                                                            .merge(
+                                                          softWrap: true,
+                                                          child: Text(
+                                                            'Presente',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .roboto(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        fixedWidth: 100.0,
+                                                      ),
+                                                      DataColumn2(
+                                                        label: DefaultTextStyle
+                                                            .merge(
+                                                          softWrap: true,
+                                                          child: Text(
+                                                            'CPF',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .roboto(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        fixedWidth: 200.0,
+                                                      ),
+                                                      DataColumn2(
+                                                        label: DefaultTextStyle
+                                                            .merge(
+                                                          softWrap: true,
+                                                          child: Text(
+                                                            'Telefone',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .roboto(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        fixedWidth: 200.0,
+                                                      ),
+                                                    ],
+                                                    dataRowBuilder:
+                                                        (listaPessoasItem,
+                                                                listaPessoasIndex,
+                                                                selected,
+                                                                onSelectChanged) =>
+                                                            DataRow(
+                                                      color:
+                                                          WidgetStateProperty
+                                                              .all(
+                                                        listaPessoasIndex % 2 ==
+                                                                0
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                      ),
+                                                      cells: [
+                                                        FutureBuilder<
+                                                            List<UsuarioRow>>(
+                                                          future: UsuarioTable()
+                                                              .querySingleRow(
+                                                            queryFn: (q) =>
+                                                                q.eqOrNull(
+                                                              'user_id',
+                                                              listaPessoasItem
+                                                                  .pessoaId,
+                                                            ),
+                                                          ),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 50.0,
+                                                                  height: 50.0,
+                                                                  child:
+                                                                      CircularProgressIndicator(
+                                                                    valueColor:
+                                                                        AlwaysStoppedAnimation<
+                                                                            Color>(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            }
+                                                            List<UsuarioRow>
+                                                                textUsuarioRowList =
+                                                                snapshot.data!;
+
+                                                            final textUsuarioRow =
+                                                                textUsuarioRowList
+                                                                        .isNotEmpty
+                                                                    ? textUsuarioRowList
+                                                                        .first
+                                                                    : null;
+
+                                                            return Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                textUsuarioRow
+                                                                    ?.nome,
+                                                                'pessoa',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .roboto(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
@@ -472,8 +489,22 @@ class _RelatorioWidgetState extends State<RelatorioWidget> {
                                                                         .bodyMedium
                                                                         .fontStyle,
                                                                   ),
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                            );
+                                                          },
+                                                        ),
+                                                        Text(
+                                                          listaPessoasItem
+                                                                      .presente ==
+                                                                  1
+                                                              ? 'Presente'
+                                                              : 'Não presente',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .roboto(
                                                                   fontWeight: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -483,245 +514,274 @@ class _RelatorioWidgetState extends State<RelatorioWidget> {
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                      );
-                                                    },
-                                                  ),
-                                                  Text(
-                                                    listaPessoasItem.presente ==
-                                                            1
-                                                        ? 'Presente'
-                                                        : 'Não presente',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .roboto(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
+                                                              ),
+                                                        ),
+                                                        Visibility(
+                                                          visible:
+                                                              bodyListaChamadaRow
+                                                                      ?.salvarCpf ==
+                                                                  true,
+                                                          child: FutureBuilder<
+                                                              List<UsuarioRow>>(
+                                                            future: UsuarioTable()
+                                                                .querySingleRow(
+                                                              queryFn: (q) =>
+                                                                  q.eqOrNull(
+                                                                'user_id',
+                                                                listaPessoasItem
+                                                                    .pessoaId,
+                                                              ),
+                                                            ),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              // Customize what your widget looks like when it's loading.
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return Center(
+                                                                  child:
+                                                                      SizedBox(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    child:
+                                                                        CircularProgressIndicator(
+                                                                      valueColor:
+                                                                          AlwaysStoppedAnimation<
+                                                                              Color>(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }
+                                                              List<UsuarioRow>
+                                                                  textUsuarioRowList =
+                                                                  snapshot
+                                                                      .data!;
+
+                                                              final textUsuarioRow =
+                                                                  textUsuarioRowList
+                                                                          .isNotEmpty
+                                                                      ? textUsuarioRowList
+                                                                          .first
+                                                                      : null;
+
+                                                              return Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  textUsuarioRow
+                                                                      ?.cpf,
+                                                                  'cpf',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .roboto(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                              );
+                                                            },
                                                           ),
-                                                          letterSpacing: 0.0,
+                                                        ),
+                                                        Visibility(
+                                                          visible:
+                                                              bodyListaChamadaRow
+                                                                      ?.salvarTelefone ==
+                                                                  true,
+                                                          child: FutureBuilder<
+                                                              List<
+                                                                  TelefoneRow>>(
+                                                            future: TelefoneTable()
+                                                                .querySingleRow(
+                                                              queryFn: (q) =>
+                                                                  q.eqOrNull(
+                                                                'pessoa_id',
+                                                                listaPessoasItem
+                                                                    .pessoaId,
+                                                              ),
+                                                            ),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              // Customize what your widget looks like when it's loading.
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return Center(
+                                                                  child:
+                                                                      SizedBox(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    child:
+                                                                        CircularProgressIndicator(
+                                                                      valueColor:
+                                                                          AlwaysStoppedAnimation<
+                                                                              Color>(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }
+                                                              List<TelefoneRow>
+                                                                  textTelefoneRowList =
+                                                                  snapshot
+                                                                      .data!;
+
+                                                              final textTelefoneRow =
+                                                                  textTelefoneRowList
+                                                                          .isNotEmpty
+                                                                      ? textTelefoneRowList
+                                                                          .first
+                                                                      : null;
+
+                                                              return Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  textTelefoneRow
+                                                                      ?.numero,
+                                                                  'telefone',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .roboto(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                              );
+                                                            },
+                                                          ),
+                                                        ),
+                                                      ]
+                                                          .map((c) =>
+                                                              DataCell(c))
+                                                          .toList(),
+                                                    ),
+                                                    paginated: false,
+                                                    selectable: false,
+                                                    width: 600.0,
+                                                    minWidth: 200.0,
+                                                    headingRowHeight: 56.0,
+                                                    dataRowHeight: 48.0,
+                                                    columnSpacing: 15.0,
+                                                    headingRowColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    addHorizontalDivider: true,
+                                                    addTopAndBottomDivider:
+                                                        false,
+                                                    hideDefaultHorizontalDivider:
+                                                        true,
+                                                    horizontalDividerColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    horizontalDividerThickness:
+                                                        1.0,
+                                                    addVerticalDivider: true,
+                                                    verticalDividerColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    verticalDividerThickness:
+                                                        1.0,
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                          } else {
+                                            return Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Não é possivel gerar o relatório.\nA chamada foi cancelada',
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .breeSerif(
                                                           fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
+                                                              FontWeight.bold,
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMedium
                                                                   .fontStyle,
                                                         ),
-                                                  ),
-                                                  Visibility(
-                                                    visible: bodyListaChamadaRow
-                                                            ?.salvarCpf ==
-                                                        true,
-                                                    child: FutureBuilder<
-                                                        List<UsuarioRow>>(
-                                                      future: UsuarioTable()
-                                                          .querySingleRow(
-                                                        queryFn: (q) =>
-                                                            q.eqOrNull(
-                                                          'user_id',
-                                                          listaPessoasItem
-                                                              .pessoaId,
-                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        fontSize: 25.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                valueColor:
-                                                                    AlwaysStoppedAnimation<
-                                                                        Color>(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }
-                                                        List<UsuarioRow>
-                                                            textUsuarioRowList =
-                                                            snapshot.data!;
-
-                                                        final textUsuarioRow =
-                                                            textUsuarioRowList
-                                                                    .isNotEmpty
-                                                                ? textUsuarioRowList
-                                                                    .first
-                                                                : null;
-
-                                                        return Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            textUsuarioRow?.cpf,
-                                                            'cpf',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .roboto(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  Visibility(
-                                                    visible: bodyListaChamadaRow
-                                                            ?.salvarTelefone ==
-                                                        true,
-                                                    child: FutureBuilder<
-                                                        List<TelefoneRow>>(
-                                                      future: TelefoneTable()
-                                                          .querySingleRow(
-                                                        queryFn: (q) =>
-                                                            q.eqOrNull(
-                                                          'pessoa_id',
-                                                          listaPessoasItem
-                                                              .pessoaId,
-                                                        ),
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                valueColor:
-                                                                    AlwaysStoppedAnimation<
-                                                                        Color>(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }
-                                                        List<TelefoneRow>
-                                                            textTelefoneRowList =
-                                                            snapshot.data!;
-
-                                                        final textTelefoneRow =
-                                                            textTelefoneRowList
-                                                                    .isNotEmpty
-                                                                ? textTelefoneRowList
-                                                                    .first
-                                                                : null;
-
-                                                        return Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            textTelefoneRow
-                                                                ?.numero,
-                                                            'telefone',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .roboto(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                ]
-                                                    .map((c) => DataCell(c))
-                                                    .toList(),
-                                              ),
-                                              paginated: false,
-                                              selectable: false,
-                                              width: 600.0,
-                                              minWidth: 200.0,
-                                              headingRowHeight: 56.0,
-                                              dataRowHeight: 48.0,
-                                              columnSpacing: 15.0,
-                                              headingRowColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              addHorizontalDivider: true,
-                                              addTopAndBottomDivider: false,
-                                              hideDefaultHorizontalDivider:
-                                                  true,
-                                              horizontalDividerColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              horizontalDividerThickness: 1.0,
-                                              addVerticalDivider: true,
-                                              verticalDividerColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              verticalDividerThickness: 1.0,
+                                                ),
+                                              ],
                                             );
-                                          },
-                                        ),
+                                          }
+                                        },
                                       ),
                                     );
                                   },
