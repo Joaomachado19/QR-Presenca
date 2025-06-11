@@ -1,7 +1,3 @@
 # QR Presenca
 
-A new Flutter project.
-
-## Getting Started
-
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+Projeto de conclusão do curso técnico de informatica da Escola Técnica Estadual Monteiro Lobato (CIMOL)
